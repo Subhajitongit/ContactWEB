@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import jwt from "jsonwebtoken";
 import cookies from "js-cookie";
@@ -82,7 +82,10 @@ export default function Home() {
         </div>
         <div class="px-4 pt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:px-16">
           {data.map((contact) => (
-            <div className="bg-white h-24 w-full rounded-xl flex justify-between">
+            <div
+              className="bg-white h-24 w-full rounded-xl flex justify-between"
+              key={contact._id}
+            >
               <div className="flex flex-col justify-center items-start h-full pl-4">
                 <h1 className="font-bold">{contact.name}</h1>
                 <h1>{contact.number}</h1>
